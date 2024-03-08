@@ -1,10 +1,18 @@
+import {Routes, Route} from "react-router-dom";
+
 function App() {
 
 
     return (
         <>
-            <h1 className="text-3xl font-bold">Alkarim</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequuntur ducimus earum facere harum incidunt iste maiores minima mollitia, nihil numquam officia optio qui recusandae soluta suscipit totam ullam. Tempora.</p>
+            <Routes>
+                <Route element={<HomePage/>} path="/"/>
+                <Route element={<LoginPage/>} path="/login"/>
+                <Route element={<ProfilePage/>} path="/me"/>
+                <Route element={<RegistrationPage/>} path="/register"/>
+               
+                <Route element={<NotFoundPage/>} path="*"></Route>
+            </Routes>
         </>
     )
 }
