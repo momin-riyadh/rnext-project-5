@@ -3,7 +3,12 @@ import Header from "../components/common/Header.jsx";
 
 function HomePage() {
     return (
-        <Header/>
+        <>
+            <Header/>
+            <p>Homepage</p>
+        </>
+
+
     );
 }
 
