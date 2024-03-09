@@ -17,18 +17,18 @@ function LoginForm() {
         <form className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]" onSubmit={handleSubmit(submitForm)}>
             {/*password*/}
 
-            <Field label="Email">
+            <Field label="Email" error={errors.email}>
                 <input
-                    {...register("password", {required: "Email Id is Required"})}
-                    className={`auth-input ${!!errors.password ? "border-red-500" : "border-gray-200 "}`}
-                    name="password"
-                    type="password"
-                    id="password"
+                    {...register("email", {required: "Email Id is Required"})}
+                    className={`auth-input ${!!errors.email ? "border-red-500" : "border-gray-200 "}`}
+                    name="email"
+                    type="email"
+                    id="email"
                 />
             </Field>
             {/*password */}
 
-            <Field label="Password">
+            <Field label="Password" error={errors.password}>
                 <input
                     {...register("password", {
                         required: "Email Id is Required",
