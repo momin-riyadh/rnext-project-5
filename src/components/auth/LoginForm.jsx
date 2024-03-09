@@ -1,16 +1,31 @@
+import Field from "../common/Field.jsx";
+import {useForm} from "react-hook-form";
+
 function LoginForm() {
+
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+    } = useForm();
+
+    const submitForm = (formData) => {
+        console.log(formData);
+    }
+
     return (
-        <form className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]">
+        <form className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]" onSubmit={handleSubmit(submitForm)}>
             {/*email*/}
-            <div className="form-control">
-                <label className="auth-label" htmlFor="email">Email</label>
+
+            <Field label="Email">
                 <input
-                    className="auth-input"
+                    {...register("email", {required: "Email Id is Required"})}
+                    className={`auth-input ${!!errors.email ? "border-red-500" : "border-gray-200 "}`}
                     name="email"
                     type="email"
                     id="email"
                 />
-            </div>
+            </Field>
             {/*password */}
             <div className="form-control">
                 <label className="auth-label" htmlFor="email">Password</label>
