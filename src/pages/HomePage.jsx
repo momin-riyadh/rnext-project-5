@@ -1,8 +1,9 @@
+import Header from "../components/common/Header.jsx";
 
 
 function HomePage() {
     return (
-        <div>Home Page</div>
+        <Header/>
     );
 }
 
