@@ -1,9 +1,12 @@
-import {useContext} from "react";
+import {useContext, useDebugValue} from "react";
 import {AuthContext} from "../context/index.js";
 
 
-function useAuth() {
-    return useContext(AuthContext);
-}
+export const useAuth = () => {
 
-export {useAuth};
+    const {auth} = useContext(AuthContext);
+    useDebugValue(auth, auth => auth?.user ? "User Logged In" : "User Logged out");
+    return useContext(AuthContext);
+};
+
+
