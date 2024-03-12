@@ -1,5 +1,5 @@
-import Header from "../components/common/Header.jsx";
 import {useAuth} from "../hooks/useAuth.js";
+import {Link} from "react-router-dom";
 
 
 function HomePage() {
@@ -7,8 +7,9 @@ function HomePage() {
     console.log(auth);
     return (
         <>
-            <Header/>
+
             <p>Homepage</p>
+            <Link to="me">Go to Profile Page</Link>
         </>
 
 
