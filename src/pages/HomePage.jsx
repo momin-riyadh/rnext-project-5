@@ -7,7 +7,6 @@ function HomePage() {
     console.log(auth);
     return (
         <>
-
             <p>Homepage</p>
             <Link to="me">Go to Profile Page</Link>
         </>
