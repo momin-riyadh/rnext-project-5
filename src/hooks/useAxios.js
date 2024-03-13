@@ -31,7 +31,7 @@ const useAxios = () => {
 
                     try {
                         const refreshToken = auth?.refreshToken;
-                        await axios.post(`http://localhost:3000/auth/refresh-token`, {refreshToken});
+                        const response = await axios.post(`http://localhost:3000/auth/refresh-token`, {refreshToken});
                         const {token} = response.data;
 
                         console.log(`New Token: ${token}`);
