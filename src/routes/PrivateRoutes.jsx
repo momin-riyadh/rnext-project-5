@@ -12,7 +12,6 @@ const PrivateRoutes = () => {
                         <Header/>
                         <main className="mx-auto max-w-[1020px] py-8">
                             <div className="container">
-
                                 <Outlet/>
                             </div>
                         </main>
