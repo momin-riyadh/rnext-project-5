@@ -1,8 +1,45 @@
-import React from 'react';
+import {useAuth} from "../hooks/useAuth.js";
+import useAxios from "../hooks/useAxios.js";
+import {useEffect, useState} from "react";
 
-function ProfilePage(props) {
+
+function ProfilePage() {
+    const [user, setUser] = useState(null);
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    const {api} = useAxios();
+    const {auth} = useAuth();
+
+    useEffect(() => {
+        setLoading(true);
+        const fetchProfile = async () => {
+            try {
+                const response = await api.get(`http://localhost:3000/profile/${auth?.user?.id}`);
+
+                setUser(response?.data?.user);
+                setPosts(response?.data?.posts);
+            } catch (error) {
+                console.error(error)
+                setError(error)
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchProfile();
+    }, []);
+
+    if (loading) {
+        return <div>Fetching your profile data...</div>
+    }
+
     return (
-        <div>Profile Page</div>
+        <div>
+            Welcome, {user?.firstName}{' '}{user?.lastName}
+           <p>You have {posts.length} posts</p>
+        </div>
     );
 }
 

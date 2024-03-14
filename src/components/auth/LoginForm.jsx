@@ -17,14 +17,18 @@ function LoginForm() {
 
     const submitForm = async (formData) => {
         try {
-            await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`, formData);
+
+            const response = await axios.post(`http://localhost:3000/auth/login`, formData)
+
             if (response.status === 200) {
                 const {token, user} = response.data;
                 if (token) {
                     const authToken = token.token;
                     const refreshToken = token.refreshToken;
 
-                    console.log(`Login time auth token:${authToken}`);
+
+                    console.log(`Login time auth token: ${authToken}`);
+
                     setAuth({user, authToken, refreshToken});
                     navigate("/");
                 }
