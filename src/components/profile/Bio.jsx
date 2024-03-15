@@ -64,10 +64,10 @@ const Bio = () => {
                 </button>
             ) : (
                 <button
-                    className="flex-center h-7 w-7 rounded-full"
+                    className="flex-center h-7 w-7 rounded-full bg-black/50 hover:bg-black/80 p-0.5"
                     onClick={handleBioEdit}
                 >
-                    <img src={CheckIcon} alt="Check" />
+                    <img className="w-3/4" src={CheckIcon} alt="Check" />
                 </button>
             )}
         </div>

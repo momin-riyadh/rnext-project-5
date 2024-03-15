@@ -5,7 +5,7 @@ import {useProfile} from "../hooks/useProfile.js";
 import {actions} from "../actions/index.js";
 import ProfileInfo from "../components/profile/ProfileInfo.jsx";
 import MyPosts from "../components/profile/MyPosts.jsx";
-import ProfileImage from "../components/profile/ProfileImage.jsx";
+
 
 function ProfilePage() {
     const {state, dispatch} = useProfile();
