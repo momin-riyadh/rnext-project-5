@@ -6,9 +6,12 @@ import Avatar from "../../assets/images/avatars/avatar_1.png";
 import {Link} from "react-router-dom";
 import Logout from "../auth/Logout.jsx";
 import {useAuth} from "../../hooks/useAuth.js";
+import {useProfile} from "../../hooks/useProfile.js";
+
 
 function Header() {
-    const {auth} = useAuth();
+    const { auth } = useAuth();
+    const { state } = useProfile();
     return (
         // Navbar
         <nav className="sticky top-0 z-50 border-b border-[#3F3F3F] bg-[#1E1F24] py-4">
