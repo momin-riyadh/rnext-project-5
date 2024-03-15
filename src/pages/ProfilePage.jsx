@@ -3,7 +3,9 @@ import useAxios from "../hooks/useAxios.js";
 import {useEffect} from "react";
 import {useProfile} from "../hooks/useProfile.js";
 import {actions} from "../actions/index.js";
-
+import ProfileInfo from "../components/profile/ProfileInfo.jsx";
+import MyPosts from "../components/profile/MyPosts.jsx";
+import ProfileImage from "../components/profile/ProfileImage.jsx";
 
 function ProfilePage() {
     const {state, dispatch} = useProfile();
@@ -33,10 +35,10 @@ function ProfilePage() {
     }
 
     return (
-        <div>
-            Welcome, {state?.user?.firstName}{' '}{state?.user?.lastName}
-            <p>You have {state?.posts?.length} posts</p>
-        </div>
+        <>
+            <ProfileInfo/>
+            <MyPosts/>
+        </>
     );
 }
 

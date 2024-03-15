@@ -1,4 +1,5 @@
 import {actions} from "../actions/index.js";
+import {act} from "react-dom/test-utils";
 
 
 const initialState = {
@@ -31,6 +32,14 @@ const profileReducer = (state, action) => {
                 ...state,
                 loading: false,
                 error: action.error
+            }
+        }
+
+        case actions.profile.USER_DATA_EDITED: {
+            return {
+                ...state,
+                loading: false,
+                user: action.data,
             }
         }
 
