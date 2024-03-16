@@ -2,6 +2,7 @@ import EDIT from '../../assets/icons/edit.svg'
 import {useProfile} from "../../hooks/useProfile.js";
 import useAxios from "../../hooks/useAxios.js";
 import {useRef} from "react";
+import {actions} from "../../actions/index.js";
 
 
 function ProfileImage() {
@@ -15,10 +16,24 @@ function ProfileImage() {
         fileUploadRef.current.click();
     }
 
-    const updateImageDisplay = () => {
-        for (const file of fileUploadRef.current.files) {
-            console.log(file)
+    const updateImageDisplay = async () => {
+
+        try {
+            const formData = new FormData()
+            for (const file of fileUploadRef.current.files) {
+                formData.append("avatar", file);
+            }
+
+            const response = await api.post(`${import.meta.env.VITE_SERVER_BASE_URL}/profile/${state?.user?.id}/avatar`, formData);
+
+            if (response.status === 200) {
+
+            }
+        } catch (error) {
+            dispatch({type: actions.profile.DATA_FETCH_ERROR, error: error.message})
         }
+
+
     }
 
     return (
