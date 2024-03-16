@@ -10,8 +10,15 @@ function ProfileImage() {
     const fileUploadRef = useRef();
 
     const handleImageUpload = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        fileUploadRef.current.addEventListener("change", updateImageDisplay)
         fileUploadRef.current.click();
+    }
+
+    const updateImageDisplay = () => {
+        for (const file of fileUploadRef.current.files) {
+            console.log(file)
+        }
     }
 
     return (
