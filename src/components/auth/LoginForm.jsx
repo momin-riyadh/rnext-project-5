@@ -18,7 +18,7 @@ function LoginForm() {
     const submitForm = async (formData) => {
         try {
 
-            const response = await axios.post(`http://localhost:3000/auth/login`, formData)
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`, formData)
 
             if (response.status === 200) {
                 const {token, user} = response.data;

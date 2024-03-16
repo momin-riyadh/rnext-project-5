@@ -16,7 +16,7 @@ function ProfilePage() {
         dispatch({type: actions.profile.DATA_FETCHING})
         const fetchProfile = async () => {
             try {
-                const response = await api.get(`http://localhost:3000/profile/${auth?.user?.id}`);
+                const response = await api.get(`${import.meta.env.VITE_SERVER_BASE_URL}/profile/${auth?.user?.id}`);
 
                 if (response.status === 200) {
                     dispatch({type: actions.profile.DATA_FETCHED, data: response.data})
