@@ -41,13 +41,13 @@ function ProfileImage() {
             className="relative mb-8 max-h-[180px] max-w-[180px] rounded-full lg:mb-11 lg:max-h-[218px] lg:max-w-[218px]"
         >
             <img
-                className="max-w-full rounded-full w-42 h-42"
+                className="rounded-full w-[150px] h-[150px] object-cover"
                 src={`${import.meta.env.VITE_SERVER_BASE_URL}/${state?.user?.avatar}`}
                 alt={state?.user?.firstName}
             />
             <form id="form" encType="multipart/form-data">
                 <button type="submit"
-                        className="flex-center absolute bottom-4 right-4 h-7 w-7 rounded-full bg-black/50 hover:bg-black/80"
+                        className="flex-center absolute bottom-3 right-3 h-7 w-7 rounded-full bg-black/50 hover:bg-black/80"
                         onClick={handleImageUpload}
                 >
                     <img src={EDIT} alt="Edit"/>

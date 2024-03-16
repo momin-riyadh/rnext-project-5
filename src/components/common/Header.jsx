@@ -1,7 +1,6 @@
 import LOGO from "../../assets/images/logo.svg";
 import HomeIcon from "../../assets/icons/home.svg";
 import Notification from "../../assets/icons/notification.svg";
-import Avatar from "../../assets/images/avatars/avatar_1.png";
 
 import {Link} from "react-router-dom";
 import Logout from "../auth/Logout.jsx";
