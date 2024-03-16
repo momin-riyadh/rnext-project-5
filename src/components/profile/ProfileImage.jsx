@@ -27,7 +27,7 @@ function ProfileImage() {
             const response = await api.post(`${import.meta.env.VITE_SERVER_BASE_URL}/profile/${state?.user?.id}/avatar`, formData);
 
             if (response.status === 200) {
-
+                dispatch({type: actions.profile.IMAGE_UPDATED, data: response.data})
             }
         } catch (error) {
             dispatch({type: actions.profile.DATA_FETCH_ERROR, error: error.message})
