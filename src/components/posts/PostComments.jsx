@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PostComments = () => (
-    <div></div>
+    <div>Post Comments</div>
 );
 
 export default PostComments;
