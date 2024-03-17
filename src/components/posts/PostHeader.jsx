@@ -10,6 +10,11 @@ import {useState} from "react";
 const PostHeader = ({post}) => {
     const [showActions, setShowActions] = useState(false);
     const {avatarURL} = useAvatar(post);
+
+    function handleToggleAction(){
+        setShowActions(!showActions)
+    }
+
     return (<header className="flex items-center justify-between gap-4">
         {/*author info*/}
         <div className="flex items-center gap-3">
@@ -32,7 +37,7 @@ const PostHeader = ({post}) => {
 
         {/*action dot*/}
         <div className="relative">
-            <button>
+            <button onClick={handleToggleAction}>
                 <img src={ThreeDotsIcon} alt="3dots of Action"/>
             </button>
 
