@@ -514,6 +514,14 @@
       "avatar": "uploads/avatar/avatar-1708802845791-219561000.png",
       "email": "rambo@email.com",
       "bio": "I am Rambo!!!"
+    },
+    {
+      "id": "53eb8916-669a-4a92-b512-fc4387fd4c2c",
+      "password": "$2b$08$bct9SkkRBx2ilF30zaBEJu4GFxvI6ocVRbVrEEkJKRa/K/aoc8Cui",
+      "firstName": "Momin",
+      "lastName": "Riyadh",
+      "avatar": null,
+      "email": "momin@mail.com"
     }
   ]
 }
