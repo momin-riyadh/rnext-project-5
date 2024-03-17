@@ -12,7 +12,7 @@ const PostCard = ({post}) => {
 
                 <PostAction postId={post?.id} commentCount={post?.comments?.length}/>
 
-                <PostComments/>
+                <PostComments post={post}/>
             </article>
         )
     }
