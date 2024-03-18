@@ -1,4 +1,4 @@
-const PostCommentList = ({ comments }) => {
+export const PostCommentList = ({ comments }) => {
     return (
         <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
             {comments &&
@@ -25,5 +25,3 @@ const PostCommentList = ({ comments }) => {
         </div>
     );
 };
-
-export default PostCommentList;

@@ -1,9 +1,15 @@
-import React from 'react';
 import {PostCommentList} from "./PostCommentList.jsx";
 import {useAvatar} from "../../hooks/useAvatar.js";
+import {useState} from "react";
 
 const PostComments = ({post}) => {
     const {avatarURL} = useAvatar(post);
+    const [allComments, setAllComments] = useState(false);
+
+    function toggleComments() {
+        setAllComments(!allComments)
+    }
+
     return (
         <div>
             {/*comment input box*/}
@@ -26,11 +32,16 @@ const PostComments = ({post}) => {
             </div>
             {/*comment filter button*/}
             <div className="mt-4">
-                <button className="text-gray-300 max-md:text-sm">
+                <button className="text-gray-300 max-md:text-sm" onClick={toggleComments}>
                     All Comment ▾
                 </button>
             </div>
-           <PostCommentList comments={post?.comments}/>
+            {
+                allComments && (
+                    <PostCommentList comments={post?.comments}/>
+                )
+            }
+
         </div>
     )
 
