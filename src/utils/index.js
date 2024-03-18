@@ -1,32 +1,24 @@
+
 export const getDateDifferenceFromNow = (fromDate) => {
-    let difference = new Date().getTime() - new Date(fromDate).getTime();
+    const currentDate = new Date();
+    const givenDate = new Date(fromDate);
 
-    difference = difference / 1000;
-    let hourDifference = Math.floor(difference / 3600);
-    difference -= hourDifference * 3600;
-    let minuteDifference = Math.floor(difference / 60);
-    difference -= minuteDifference * 60;
+    const difference = currentDate.getTime() - givenDate.getTime();
+    const diffDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const diffHours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const diffMinutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const diffSeconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    let message;
+    const daysMessage = diffDays > 0 ? `${diffDays} day${diffDays > 1 ? 's' : ''} ` : '';
+    const hoursMessage = diffHours > 0 ? `${diffHours} hour${diffHours > 1 ? 's' : ''} ` : '';
+    const minutesMessage = diffMinutes > 0 ? `${diffMinutes} minute${diffMinutes > 1 ? 's' : ''} ` : '';
+    const secondsMessage = diffSeconds > 0 ? `${diffSeconds} second${diffSeconds > 1 ? 's' : ''}` : '';
 
-    if (hourDifference > 0) {
-        message = `${hourDifference} hour`;
+    let message = `${daysMessage}${hoursMessage}${minutesMessage}`;
+
+    if (!message) {
+        message = 'Just now';
     }
 
-    if (minuteDifference > 0) {
-        message = message
-            ? `${message} ${minuteDifference} minutes`
-            : `${minuteDifference} minutes`
-    }
-
-    if (difference) {
-        message = message
-            ? `${message} ${Math.round(difference)} seconds`
-            : `${Math.round(difference)} seconds`;
-    }
-
-    return message
-
+    return `${message} ago`;
 }
-
-getDateDifferenceFromNow()
